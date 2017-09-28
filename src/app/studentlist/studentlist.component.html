@@ -1,0 +1,24 @@
+<div class="w3-container">
+  <button routerLink="/add" class="btn info"><i class="fa fa-plus" aria-hidden="true"></i>
+Add Student</button>
+  <h2>Student List</h2>
+
+  <table class="w3-table w3-striped w3-bordered" *ngIf="studentList">
+    <tr>
+      <th>Sr. No.</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+    <tr *ngFor="let student of studentList; index as i;">
+      <td>{{i +1}}</td>
+      <td>{{student.firstname}}</td>
+      <td>{{student.lastname}}</td>
+      <td>{{student.email}}</td>
+      <td>{{student.phone}}</td>
+      <td><button  [routerLink]="['add', i]" class="btn success">Edit</button></td>
+      <td><button (click)="deleteStudent(i);" class="btn danger">Delete</button></td>
+    </tr>
+  </table>
+</div>
